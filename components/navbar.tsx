@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <div className="container mx-auto relative z-10">
+        <div className="container mx-auto z-10 relative lg:absolute lg:top-0">
             <div className="grid grid-cols-12 gap-1 sm:items-center">
                 <div className="col-span-11 sm:col-span-12 lg:col-span-4 sm:flex sm:justify-center mb-0 sm:mb-8 lg:mb-0">
                     <Link href="/" className="custom-logo-link" rel="home">
@@ -17,12 +17,12 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {/* <a
-                        href="javascript:void(0);"
-                        className="mobileNavToggle col-span-1 block sm:hidden text-white pt-8 text-xl relative"
-                    >
-                        <i className="fa-solid fa-bars"></i>
-                    </a> */}
+                <a
+                    href="javascript:void(0);"
+                    className="mobileNavToggle col-span-1 block sm:hidden text-white pt-8 text-xl relative"
+                >
+                    <i className="fa-solid fa-bars"></i>
+                </a>
 
                 <nav
                     className="mainNav col-span-12 lg:col-span-8 hidden sm:flex sm:justify-center"

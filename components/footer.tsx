@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer({ font }: { font: string }) {
     return (
         <footer
-            className={`flex items-center px-6 sm:px-0 py-8 lg:py-0 ${font}`}
+            className={`flex flex-col items-center px-6 sm:px-0 py-8 lg:py-0 ${font}`}
         >
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-1 items-center">
@@ -55,7 +55,7 @@ export default function Footer({ font }: { font: string }) {
 
                     <div className="col-span-6 lg:col-span-4 mb-8 flex justify-center">
                         <div className="social-media-and-newsletter">
-                            <span className="follow-us-on-label secondary-font mb-3 block">
+                            <span className="follow-us-on-label mb-3 block">
                                 Follow us on:
                             </span>
                             <div className="flex items-center mb-6">
@@ -106,6 +106,11 @@ export default function Footer({ font }: { font: string }) {
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+            <div className="copyright flex justify-center items-center w-full">
+                <p className="font-light text-sm">Copyright &copy; {new Date().getFullYear()} Timeless Treasures PH | All Rights Reserved.</p>
             </div>
         </footer>
     );

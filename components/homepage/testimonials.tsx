@@ -26,7 +26,7 @@ export default function Testimonials() {
     return (
         <section id="testimonials" className="h-full py-8 sm:py-12 lg:py-16">
             <div className="container mx-auto flex flex-col justify-center items-center">
-                <h3 className="secondary-font text-center mb-0 md:mb-8">Clients Testimonials</h3>
+                <h3 className="font-medium text-center mb-0 md:mb-8">Clients Testimonials</h3>
 				{ 
 					data?.testimonials?.nodes?.length &&
 						<Slider containerClass="testimonialsSlider" dotListClass="testimonialsSliderDots">
@@ -39,7 +39,7 @@ export default function Testimonials() {
 											<i className="fa-solid fa-star-half-stroke rating"></i>
 										</div>
 										<h4 className="testimonial-customer text-center px-6">{testimonial.title}</h4>
-										<div className="testimonial-text font-medium italic text-center mt-4 px-12" dangerouslySetInnerHTML={{ __html: testimonial.content}}></div>
+										<div className="testimonial-text font-light italic text-center mt-4 px-12" dangerouslySetInnerHTML={{ __html: testimonial.content}}></div>
 									</div>
 								))
 							}
