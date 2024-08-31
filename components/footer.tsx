@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer({ font }: { font: string }) {
     return (
         <footer
-            className={`flex flex-col items-center px-6 sm:px-0 py-8 lg:py-0 ${font}`}
+            className={`flex flex-col items-center px-0 pt-8 lg:pt-0 ${font}`}
         >
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-1 items-center">
@@ -110,7 +110,7 @@ export default function Footer({ font }: { font: string }) {
             </div>
 
             <div className="copyright flex justify-center items-center w-full">
-                <p className="font-light text-sm">Copyright &copy; {new Date().getFullYear()} Timeless Treasures PH | All Rights Reserved.</p>
+                <p className="font-light text-xs sm:text-sm px-4 sm:px-0">Copyright &copy; {new Date().getFullYear()} Timeless Treasures PH | All Rights Reserved.</p>
             </div>
         </footer>
     );

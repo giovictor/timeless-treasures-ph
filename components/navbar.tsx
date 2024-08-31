@@ -1,8 +1,17 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
+    const router = useRouter();
+
     return (
-        <div className="container mx-auto z-10 relative lg:absolute lg:top-0">
+        <div
+            className={`container mx-auto z-10 ${
+                router.pathname === "/"
+                    ? "relative lg:absolute lg:top-0"
+                    : "relative"
+            }`}
+        >
             <div className="grid grid-cols-12 gap-1 sm:items-center">
                 <div className="col-span-11 sm:col-span-12 lg:col-span-4 sm:flex sm:justify-center mb-0 sm:mb-8 lg:mb-0">
                     <Link href="/" className="custom-logo-link" rel="home">
@@ -18,14 +27,16 @@ export default function Navbar() {
                 </div>
 
                 <a
-                    href="javascript:void(0);"
+                    href="#"
                     className="mobileNavToggle col-span-1 block sm:hidden text-white pt-8 text-xl relative"
                 >
                     <i className="fa-solid fa-bars"></i>
                 </a>
 
                 <nav
-                    className="mainNav col-span-12 lg:col-span-8 hidden sm:flex sm:justify-center"
+                    className={`mainNav col-span-12 lg:col-span-8 hidden sm:flex sm:justify-center ${
+                        router.pathname === "/" ? "pb-0" : "pb-0 sm:pb-8 lg:pb-0"
+                    }`}
                     id="site-navigation"
                     aria-label="Main Navigation"
                 >
@@ -48,7 +59,7 @@ export default function Navbar() {
                                 <Link href="#shop">Shop</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="#contact">Contact</Link>
+                                <Link href="/contact">Contact</Link>
                             </li>
                         </ul>
                     </div>

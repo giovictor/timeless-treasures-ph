@@ -192,7 +192,7 @@ footer {
 
 .copyright {
     height: 60px;
-    background-color: #5B463D;
+    background-color: #7D4C3A;
     color: #FFFFFF;
 }
 
@@ -261,7 +261,7 @@ footer {
 
 .testimonial {
 	background-color: #F8F8F8;
-	height: 350px;
+	height: 300px;
 	margin-top: 100px;
     border-radius: 25px;
 }
@@ -389,6 +389,10 @@ footer {
     border-radius: 25px;
 }
 
+.service h4 {
+    font-size: 20px;
+}
+
 .service .overlay {
 	background-color: rgba(0, 0, 0, 0.58);
 	transition: all ease-in-out 0.5s;
@@ -403,6 +407,11 @@ footer {
 	#services h3 {
 		font-size: 30px;
 	}
+
+    .service h4 {
+        font-size: 24px;
+    }
+    
 }
 
 @media only screen and (min-width: 640px) {
@@ -414,6 +423,10 @@ footer {
 		height: 494px;
 		font-size: 30px;
 	}
+
+    .service h4 {
+        font-size: 30px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -455,5 +468,102 @@ footer {
 @media only screen and (min-width: 768px) {
     #gallery h3 {
         font-size: 35px;
+    }
+}
+
+/* Contact Styling */
+.contact-form h3 {
+    color:#7D4C3A;
+	font-size: 25px;
+}
+
+.contact-img .header {
+    color:#7D4C3A;
+	font-size: 20px;
+}
+
+.contact-form .field label {
+    color: #7D4C3A;
+    font-size: 16px;
+}
+
+.contact-form .field input, .contact-form .field textarea {
+    border: solid #BCB1AC 1px;
+    border-radius: 8px;
+    color: #000000;
+    font-size: 16px;
+    outline: none;
+}
+
+.contact-form .field input {
+    height: 50px;
+}
+
+.contact-form .field input:focus-visible, .contact-form .field textarea:focus-visible {
+    border: solid #7D4C3A 3px;
+}
+
+.contact-form button {
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+    width: 85px;
+    background-color: #7D4C3A;
+    border: solid #7D4C3A 1px;
+}
+
+.contact-form button:hover {
+    color: #7D4C3A;
+    background-color: #FFFFFF;
+}
+
+.contact-form button:disabled, .contact-form button:disabled:hover  {
+    background-color: #d1d5db;
+    border: solid #e5e7eb 1px;
+    color: #000000;
+}
+
+.contact-img {
+    background-image: url('../public/images/contact-bg.jpg');
+}
+
+.contact-img p {
+    font-size: 16px;
+}
+
+.contact-details-indent {
+    margin-right: 10px;
+}
+
+@media only screen and (min-width: 480px) {
+    .contact-form h3 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .contact-form h3 {
+        font-size: 35px;
+    }
+
+    .contact-img .heading {
+        font-size: 24px;
+    }
+
+    .contact-form .field label {
+        font-size: 20px;
+    }
+
+    .contact-form .field input, .contact-form .field textarea {
+        font-size: 20px;
+    }
+
+    .contact-form button {
+        font-size: 20px;
+    }
+    
+
+    .contact-img p {
+        font-size: 20px;
     }
 }

@@ -19,6 +19,7 @@ export default function Services() {
 
     useEffect(() => {
         console.log("loading", loading);
+        console.log("error", error);
         console.log("data", data);
     }, [data]);
 
@@ -26,12 +27,12 @@ export default function Services() {
         <section id="services" className="h-full py-8 sm:py-12 lg:py-16">
             <div className="container mx-auto flex flex-col justify-center items-center">
                 <h3 className="font-medium mb-8 sm:mb-10">Our Services</h3>
-                <div className="font-light mx-8 sm:mx-16 lg:mx-20 mb-8 sm:mb-16 text-center">
+                <p className="font-light mx-8 sm:mx-16 lg:mx-20 mb-8 sm:mb-16 text-center">
                     We do a lot of custom souvenirs, rentals, and styling. We
                     pride ourselves on creating unique items and timeless
                     treasures for you to experience. Work with us as we craft
                     your memorable events!
-                </div>
+                </p>
                 {data?.productCategories?.nodes?.length && 
                     <Slider
                         containerClass="servicesSlider"

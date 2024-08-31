@@ -20,6 +20,7 @@ export default function Testimonials() {
 
     useEffect(() => {
         console.log('loading', loading)
+        console.log("error", error);
         console.log('data', data)
     }, [data])
 
