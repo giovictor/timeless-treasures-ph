@@ -22,7 +22,7 @@ export default function Navbar() {
                         <img
                             width="208"
                             height="191"
-                            src="http://timelesstreasuresph.test/wp-content/uploads/2024/05/timeless-treasures-ph-logo.png"
+                            src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2024/05/timeless-treasures-ph-logo.png`}
                             className="custom-logo"
                             alt="Timeless Treasures PH"
                             decoding="async"
