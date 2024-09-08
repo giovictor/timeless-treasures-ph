@@ -17,7 +17,7 @@ interface Service {
 
 const Service = ({category} : {category:Service}) => {
     return (
-        <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}} key={category.databaseId}>
+        <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}}>
             <div className="overlay absolute w-full h-full top-0 left-0"></div>
             <h4 className="text-center relative z-10 px-16">
                 {category.name}
@@ -41,7 +41,7 @@ export default function Services() {
         console.log("data", data);
     }, [data]);
 
-    const services = !loading && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category} />) : []
+    const services = !loading && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category}  key={category.databaseId} />) : []
 
     return (
         <section id="services" className="h-full py-8 sm:py-12 lg:py-16">

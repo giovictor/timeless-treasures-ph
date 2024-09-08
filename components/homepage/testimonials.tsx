@@ -18,7 +18,7 @@ interface Testimonial {
 
 const Testimonial = ({testimonial}: {testimonial: Testimonial}) => {
     return (
-        <div className="testimonial relative mx-4 pb-16 pt-24 md:pt-32 cursor-pointer" key={testimonial.databaseId}>
+        <div className="testimonial relative mx-4 pb-16 pt-24 md:pt-32 cursor-pointer">
             <img className="testimonialImage absolute rounded-full top-0" src={testimonial.featuredImage.node.mediaItemUrl} />
             <div className="flex justify-center">
                 <i className="fa-solid fa-star rating"></i>
@@ -49,7 +49,7 @@ export default function Testimonials() {
         console.log('data', data)
     }, [data])
 
-    const testimonials = !loading && data?.testimonials?.nodes?.length !== 0 ? data?.testimonials?.nodes?.map((testimonial: Testimonial) => <Testimonial testimonial={testimonial}/>) : []
+    const testimonials = !loading && data?.testimonials?.nodes?.length !== 0 ? data?.testimonials?.nodes?.map((testimonial: Testimonial) => <Testimonial testimonial={testimonial}  key={testimonial.databaseId} />) : []
 
     return (
         <section id="testimonials" className="h-full py-8 sm:py-12 lg:py-16">
