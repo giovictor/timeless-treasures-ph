@@ -171,6 +171,16 @@ footer {
     color: #432316;
 }
 
+.socialMediaLink {
+    color: #432316;
+    font-size: 30px;
+    transition: all ease-in-out 0.3s;
+}
+
+.socialMediaLink:hover {
+    color: #7D4C3A;
+}
+
 .newsletter-email {
 	height: 50px;
 	border: solid #432316 1px;
@@ -222,7 +232,7 @@ footer {
 	}
 
 	.footer-menu {
-		height: 210px;
+		height: 194px;
 	}
 }
 
@@ -278,7 +288,7 @@ footer {
 	overflow-y: auto;
 }
 
-.testimonial img {
+.testimonialImage {
 	height: 150px;
 	width: 150px;
 	left: 50%;
@@ -320,7 +330,7 @@ footer {
 		font-size: 35px;
 	}
 
-	.testimonial img {
+	.testimonialImage {
 		height: 200px;
 		width: 200px;
 	}

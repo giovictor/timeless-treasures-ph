@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
     const router = useRouter();
+    const [toggleMobileNavigation, setToggleMobileNavigation] = useState<boolean>(false);
 
     return (
         <div
@@ -29,12 +33,13 @@ export default function Navbar() {
                 <a
                     href="#"
                     className="mobileNavToggle col-span-1 block sm:hidden text-white pt-8 text-xl relative"
+                    onClick={() => setToggleMobileNavigation(!toggleMobileNavigation)}
                 >
-                    <i className="fa-solid fa-bars"></i>
+                    <FontAwesomeIcon icon={faBars} />
                 </a>
 
                 <nav
-                    className={`mainNav col-span-12 lg:col-span-8 hidden sm:flex sm:justify-center ${
+                    className={`mainNav col-span-12 lg:col-span-8 ${!toggleMobileNavigation ? 'hidden' : '' } sm:flex sm:justify-center ${
                         router.pathname === "/" ? "pb-0" : "pb-0 sm:pb-8 lg:pb-0"
                     }`}
                     id="site-navigation"
@@ -47,16 +52,16 @@ export default function Navbar() {
                             aria-label="main-menu"
                         >
                             <li className="menu-item">
-                                <Link href="#testimonials">Testimonials</Link>
+                                <Link href="/#testimonials">Testimonials</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="#services">Services</Link>
+                                <Link href="/#services">Services</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="#about-us">About Us</Link>
+                                <Link href="/#about-us">About Us</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="#shop">Shop</Link>
+                                <Link href="/#gallery">Gallery</Link>
                             </li>
                             <li className="menu-item">
                                 <Link href="/contact">Contact</Link>

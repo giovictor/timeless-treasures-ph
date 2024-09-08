@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { SERVICES_LIST } from "@/data/graphql/services";
 
-import Slider from "../slider";
+import CarouselSlider from "../carousel";
+import { Skeleton } from "@/components/ui/skeleton";
 
-interface Services {
+interface Service {
     databaseId: number;
     name: string;
     content: string;
@@ -12,6 +13,23 @@ interface Services {
         sourceUrl: string;
     };
     slug: string;
+}
+
+const Service = ({category} : {category:Service}) => {
+    return (
+        <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}} key={category.databaseId}>
+            <div className="overlay absolute w-full h-full top-0 left-0"></div>
+            <h4 className="text-center relative z-10 px-16">
+                {category.name}
+            </h4>
+        </div>
+    )
+}
+
+const ServiceSkeleton = () => {
+    return (
+        <Skeleton className="service mx-4" />
+    )
 }
 
 export default function Services() {
@@ -23,6 +41,8 @@ export default function Services() {
         console.log("data", data);
     }, [data]);
 
+    const services = !loading && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category} />) : []
+
     return (
         <section id="services" className="h-full py-8 sm:py-12 lg:py-16">
             <div className="container mx-auto flex flex-col justify-center items-center">
@@ -33,23 +53,7 @@ export default function Services() {
                     treasures for you to experience. Work with us as we craft
                     your memorable events!
                 </p>
-                {data?.productCategories?.nodes?.length && 
-                    <Slider
-                        containerClass="servicesSlider"
-                        dotListClass="servicesSliderDots"
-                    >
-                        {data?.productCategories?.nodes?.map(
-                            (category: Services) => (
-                                <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}} key={category.databaseId}>
-                                    <div className="overlay absolute w-full h-full top-0 left-0"></div>
-                                    <h4 className="text-center relative z-10 px-16">
-                                        {category.name}
-                                    </h4>
-                                </div>
-                            )
-                        )}
-                    </Slider>
-                }
+                <CarouselSlider slides={services} skeleton={<ServiceSkeleton />} />
             </div>
         </section>
     );

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer({ font }: { font: string }) {
     return (
@@ -8,11 +10,13 @@ export default function Footer({ font }: { font: string }) {
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-1 items-center">
                     <div className="col-span-12 lg:col-span-4 mb-0 lg:mb-8 flex justify-center">
-                        <img
-                            src="/images/footer-logo.jpg"
-                            alt="Footer Logo"
-                            className="footer-logo"
-                        />
+                        <Link href="/">
+                            <img
+                                src="/images/footer-logo.jpg"
+                                alt="Footer Logo"
+                                className="footer-logo"
+                            />
+                        </Link>
                     </div>
 
                     <div className="col-span-6 lg:col-span-4 mb-8 flex justify-center">
@@ -23,30 +27,24 @@ export default function Footer({ font }: { font: string }) {
                                     className="footer-menu"
                                 >
                                     <li className="menu-item">
-                                        <Link href="#home">Home</Link>
+                                        <Link href="/">Home</Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="#about-us">About Us</Link>
-                                    </li>
-                                    <li className="menu-item">
-                                        <Link href="#testimonials">
+                                        <Link href="/#testimonials">
                                             Testimonials
                                         </Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="#gallery">Gallery</Link>
+                                        <Link href="/#about-us">About Us</Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="#products">Products</Link>
+                                        <Link href="/#services">Services</Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="#services">Services</Link>
+                                        <Link href="/#gallery">Gallery</Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="#blog">Blog</Link>
-                                    </li>
-                                    <li className="menu-item">
-                                        <Link href="#shop">Shop</Link>
+                                        <Link href="/contact">Contact</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -62,25 +60,25 @@ export default function Footer({ font }: { font: string }) {
                                 <a
                                     href="https://www.facebook.com/timelesstreasuresphilippines"
                                     target="_blank"
-                                    className="mr-3"
+                                    className="socialMediaLink mr-3"
                                 >
-                                    <img src="/images/facebook-logo.png" />
+                                    <FontAwesomeIcon icon={faFacebook} />
                                 </a>
 
                                 <a
                                     href="https://www.instagram.com/timelesstreasures_ph/"
                                     target="_blank"
-                                    className="mr-3"
+                                    className="socialMediaLink mr-3"
                                 >
-                                    <img src="/images/instagram-logo.png" />
+                                     <FontAwesomeIcon icon={faInstagram} />
                                 </a>
 
                                 <a
                                     href="https://www.tiktok.com/@timelesstreasuresph"
                                     target="_blank"
-                                    className="mr-3"
+                                    className="socialMediaLink mr-3"
                                 >
-                                    <img src="/images/tiktok-logo.png" />
+                                    <FontAwesomeIcon icon={faTiktok} />
                                 </a>
                             </div>
 
