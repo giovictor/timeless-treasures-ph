@@ -47,7 +47,7 @@ export default function Contact() {
     const onSubmit: SubmitHandler<ContactForm> = async (formData) => {
         setIsSending(true);
         try {
-            let response = await fetch("http://localhost:3000/api/email", {
+            let response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/email`, {
                 method: "POST",
                 body: JSON.stringify(formData),
             });
