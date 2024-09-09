@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { name, email, contactNumber, message} = JSON.parse(req.body)
     const { data, error } = await resend.emails.send({
         from: "Timeless Treasures PH <onboarding@resend.dev>",
-        to: ["giorodriguez021@gmail.com"],
+        to: ["giorodriguez021@gmail.com", "kdalida23@gmail.com"],
         subject: "Timeless Treasures PH",
         react: EmailTemplate({
             name: name,
