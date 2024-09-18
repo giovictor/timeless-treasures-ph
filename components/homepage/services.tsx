@@ -4,6 +4,7 @@ import { SERVICES_LIST } from "@/data/graphql/services";
 
 import CarouselSlider from "../carousel";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 interface Service {
     databaseId: number;
@@ -17,12 +18,14 @@ interface Service {
 
 const Service = ({category} : {category:Service}) => {
     return (
-        <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}}>
-            <div className="overlay absolute w-full h-full top-0 left-0"></div>
-            <h4 className="text-center relative z-10 px-16">
-                {category.name}
-            </h4>
-        </div>
+        <Link href={`/products/category/${category.slug}`}>
+            <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}}>
+                <div className="overlay absolute w-full h-full top-0 left-0"></div>
+                <h4 className="text-center relative z-10 px-16">
+                    {category.name}
+                </h4>
+            </div>
+        </Link>
     )
 }
 

@@ -62,7 +62,7 @@ export default function Gallery() {
                         />
                     </div>
                 ) : (
-                    <div className="grid grid-cols-12 gap-1">
+                    <div className="grid grid-cols-12 gap-1 mb-4 mx-4">
                         <div className="col-span-4">
                             <Skeleton className="w-full h-64" />
                         </div>
