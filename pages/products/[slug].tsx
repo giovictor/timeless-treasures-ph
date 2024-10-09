@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useState, useMemo, ChangeEvent } from "react";
 import { useQuery } from "@apollo/client";
 import { PRODUCT } from "@/data/graphql/product";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { faCircleNotch, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Product() {
     const router = useRouter();
@@ -11,11 +13,72 @@ export default function Product() {
         variables: { id: router.query.slug },
     });
 
-    useEffect(() => {
-        console.log("loading", loading);
-        console.log("error", error);
-        console.log("data", data);
-    }, [data]);
+    const [selectedVariation, setSelectedVariation] = useState<any>({});
+    const [quantity, setQuantity] = useState<string>("1");
+
+    const variationPriceList = useMemo(() => {
+        return data?.product?.variations?.nodes.map((variation: any) => {
+            let attributes:any = {}
+            variation.attributes.nodes.forEach((attribute: any) => {
+                attributes[attribute.label] = attribute.value
+            })
+            return {
+                rawPrice: variation.rawPrice,
+                formattedPrice: variation.formattedPrice,
+                ...attributes
+            }
+        })
+    }, [data])
+
+    const computedPrice = useMemo(() => {
+        if(data?.product?.variations?.nodes) {
+            if (Object.keys(selectedVariation).length === 0) {
+                return null;
+            }
+
+            let selectedVariationPrice = variationPriceList?.filter((variation: any) => {
+                return Object.keys(selectedVariation).every((key) => {
+                    return selectedVariation[key] == variation[key]
+                })
+            })
+
+            if(selectedVariationPrice?.length === 0) {
+                return null
+            }
+
+            let pricePerQuantity = Number(selectedVariationPrice[0]?.rawPrice) * Number(quantity)
+            let currencySymbol = selectedVariationPrice[0]?.formattedPrice[0]
+            return `${currencySymbol}${pricePerQuantity.toFixed(2)}`
+        } else {
+            let pricePerQuantity = Number(data?.product?.rawPrice) * Number(quantity)
+            let currencySymbol = data?.product?.formattedPrice[0]
+            return `${currencySymbol}${pricePerQuantity.toFixed(2)}`
+        }
+    }, [data, selectedVariation, quantity]);
+
+    const handleVariationChange = (e: ChangeEvent<HTMLSelectElement>) => {
+       setSelectedVariation((prevState: any) => ({ ...prevState, [e.target.name]: e.target.value }))
+    }
+
+    const handleQuantity = (e: ChangeEvent<HTMLInputElement>) => {
+        setQuantity(e.target.value)
+    }
+
+    const decreaseQuantity = () => {
+        if(Number(quantity) > 1) {
+            setQuantity((prevState) => {
+                let updatedQuantity = Number(prevState) - 1
+                return String(updatedQuantity)
+            })
+        }
+    }
+
+    const increaseQuantity = () => {
+        setQuantity((prevState) => {
+            let updatedQuantity = Number(prevState) + 1
+            return String(updatedQuantity)
+        })
+    }
 
     return (
         <section
@@ -24,15 +87,72 @@ export default function Product() {
         >
             <div className="container mx-auto">
                 <div className="flex flex-wrap">
-                    {data?.product ? (
+                    {!loading && data?.product ? (
                         <>
                             <div className="w-full h-full lg:w-6/12 p-6 lg:p-12">
-                                <img src={data.product.image.mediaItemUrl} />
+                                <img src={data?.product?.image?.mediaItemUrl} />
                             </div>
 
                             <div className="w-full h-full lg:w-6/12 p-6 lg:p-12">
-                                <h3 className="product-name text-3xl mb-8">{data.product.name}</h3>
-                                <p className="product-price text-2xl mb-8">{data.product.price}</p>
+                                <h3 className="product-name text-3xl mb-8">
+                                    {data?.product?.name}
+                                </h3>
+                                <p className="product-price text-2xl mb-8">
+                                    {data?.product?.variations?.nodes ? data?.product?.formattedPrice : computedPrice}
+                                </p>
+                                {data?.product?.attributes?.nodes &&
+                                    data.product.attributes.nodes.map(
+                                        (attribute: any, index: number) => (
+                                            <div
+                                                className="variation-field mb-8"
+                                                key={index}
+                                            >
+                                                <label className="block">
+                                                    {attribute.label}
+                                                </label>
+                                                <select className="w-4/12" name={attribute.label} onChange={handleVariationChange} value={selectedVariation[attribute.label] || ""}>
+                                                    <option value="" disabled>Choose {attribute.label.toLowerCase()}</option>
+                                                    {attribute.options.map(
+                                                        (option: any, optionIndex: number) => (
+                                                            <option
+                                                                value={option}
+                                                                key={optionIndex}
+                                                            >
+                                                                {option}
+                                                            </option>
+                                                        )
+                                                    )}
+                                                </select>
+                                            </div>
+                                        )
+                                    )}
+                                <div className="flex w-full items-center my-4">
+                                    <label className="mr-5">Quantity</label>
+                                    <div className="flex">
+                                        <Button type="button" className="rounded-none" onClick={decreaseQuantity}>
+                                            <FontAwesomeIcon
+                                                icon={faMinus}
+                                            />
+                                        </Button>
+                                        <Input type="number" min="1" max="100" className="w-20 rounded-none" onChange={handleQuantity} value={quantity} />
+                                        <Button type="button" className="rounded-none"  onClick={increaseQuantity}>
+                                            <FontAwesomeIcon
+                                                icon={faPlus}
+                                            />
+                                        </Button>
+                                    </div>
+                                </div>
+
+                                {Object.keys(selectedVariation).length !== 0 && computedPrice && (
+                                    <p className="product-price text-2xl mb-8">
+                                        {computedPrice}
+                                    </p>
+                                )}
+
+                                <div className="my-4">
+                                    <p>Note:</p>
+                                    <p>Cart page is under construction. To buy products kindly send us your inquiry via contact form or message us on our social media accounts directly.</p>
+                                </div>
                             </div>
                         </>
                     ) : (

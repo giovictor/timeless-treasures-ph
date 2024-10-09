@@ -25,7 +25,8 @@ export const PRODUCT = gql`
                 }
             }
             ... on SimpleProduct {
-                price
+                rawPrice: price(format: RAW)
+                formattedPrice: price(format: FORMATTED)
                 stockQuantity
                 image {
                     altText
@@ -33,11 +34,13 @@ export const PRODUCT = gql`
                 }
             }
             ... on VariableProduct {
-                price
+                rawPrice: price(format: RAW)
+                formattedPrice: price(format: FORMATTED)
                 stockQuantity
                 variations {
                     nodes {
-                        price
+                        rawPrice: price(format: RAW)
+                        formattedPrice: price(format: FORMATTED)
                         stockQuantity
                         image {
                             altText

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { SERVICES_LIST } from "@/data/graphql/services";
 
@@ -37,14 +36,7 @@ const ServiceSkeleton = () => {
 
 export default function Services() {
     const { error, loading, data } = useQuery(SERVICES_LIST);
-
-    useEffect(() => {
-        console.log("loading", loading);
-        console.log("error", error);
-        console.log("data", data);
-    }, [data]);
-
-    const services = !loading && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category}  key={category.databaseId} />) : []
+    const services = data?.productCategories && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category}  key={category.databaseId} />) : []
 
     return (
         <section id="services" className="h-full py-8 sm:py-12 lg:py-16">

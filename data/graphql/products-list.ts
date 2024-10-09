@@ -13,7 +13,8 @@ export const PRODUCTS = gql`
                     mediaItemUrl
                 }
                 ... on SimpleProduct {
-                    price
+                    rawPrice: price(format: RAW)
+                    formattedPrice: price(format: FORMATTED)
                     productCategories {
                         nodes {
                             name
@@ -22,7 +23,8 @@ export const PRODUCTS = gql`
                     }
                 }
                 ... on VariableProduct {
-                    price
+                    rawPrice: price(format: RAW)
+                    formattedPrice: price(format: FORMATTED)
                     productCategories {
                         nodes {
                             name

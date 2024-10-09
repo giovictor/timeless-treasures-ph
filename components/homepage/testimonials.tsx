@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { TESTIMONIALS_LIST } from '@/data/graphql/testimonials'
 
@@ -42,14 +41,7 @@ const TestimonialSkeleton = () => {
 
 export default function Testimonials() {
     const { error, loading, data } = useQuery(TESTIMONIALS_LIST)
-
-    useEffect(() => {
-        console.log('loading', loading)
-        console.log("error", error);
-        console.log('data', data)
-    }, [data])
-
-    const testimonials = !loading && data?.testimonials?.nodes?.length !== 0 ? data?.testimonials?.nodes?.map((testimonial: Testimonial) => <Testimonial testimonial={testimonial}  key={testimonial.databaseId} />) : []
+    const testimonials = data?.testimonials && data?.testimonials?.nodes?.length !== 0 ? data?.testimonials?.nodes?.map((testimonial: Testimonial) => <Testimonial testimonial={testimonial}  key={testimonial.databaseId} />) : []
 
     return (
         <section id="testimonials" className="h-full py-8 sm:py-12 lg:py-16">

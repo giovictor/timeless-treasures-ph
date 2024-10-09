@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { useEffect } from "react";
-
 import { PRODUCTS } from "@/data/graphql/products-list";
 import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,11 +13,6 @@ export default function Products() {
     const { loading, error, data } = useQuery(PRODUCTS, {
         variables: { category: router.query.slug },
     });
-    useEffect(() => {
-        console.log("loading", loading);
-        console.log("error", error);
-        console.log("data", data);
-    }, [data]);
 
     return (
         <section
@@ -31,33 +24,37 @@ export default function Products() {
                     {categoryName}
                 </h3>
                 <div className="flex flex-wrap">
-                    {!loading && data?.products?.nodes?.length !== 0 ? (
-                        data?.products?.nodes.map((product: any) => (
-                            <div
-                                className="w-full h-full sm:w-6/12 md:w-4/12 xl:w-3/12"
-                                key={product.databaseId}
-                            >
-                                <Link href={`/products/${product.slug}`}>
-                                    <div className="product m-4 pb-4 cursor-pointer">
-                                        <img
-                                            src={product.image.mediaItemUrl}
-                                            className="w-full"
-                                        />
-                                        <div className="px-4">
-                                            <p className="text-sm h-8 leading-4 my-2 line-clamp-2 text-ellipsis hover:underline">
-                                                {product.name}
-                                            </p>
-                                            <p className="text-md font-medium mt-2 mb-4">
-                                                {product.price}
-                                            </p>
-                                            <Button className="w-full">
-                                                View Product
-                                            </Button>
+                    {!loading ? (
+                        data?.products?.nodes && data?.products?.nodes.length !== 0 ? (
+                            data?.products?.nodes.map((product: any) => (
+                                <div
+                                    className="w-full h-full sm:w-6/12 md:w-4/12 xl:w-3/12"
+                                    key={product.databaseId}
+                                >
+                                    <Link href={`/products/${product.slug}`}>
+                                        <div className="product m-4 pb-4 cursor-pointer">
+                                            <img
+                                                src={product.image.mediaItemUrl}
+                                                className="w-full"
+                                            />
+                                            <div className="px-4">
+                                                <p className="text-sm h-8 leading-4 my-2 line-clamp-2 text-ellipsis hover:underline">
+                                                    {product.name}
+                                                </p>
+                                                <p className="text-md font-medium mt-2 mb-4">
+                                                    {product.formattedPrice}
+                                                </p>
+                                                <Button className="w-full">
+                                                    View Product
+                                                </Button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))
+                                    </Link>
+                                </div>
+                            ))
+                        ) : (
+                            <span className="h-96 text-md py-4">No products available for {categoryName}.</span>
+                        )
                     ) : (
                         <div className="spinner h-96 w-full flex justify-center items-center">
                             <FontAwesomeIcon

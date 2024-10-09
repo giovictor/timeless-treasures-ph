@@ -30,10 +30,6 @@ export default function Gallery() {
     const [photos, setPhotos] = useState<GalleryItem[]>([])
     
     useEffect(() => {
-        console.log("loading", loading);
-        console.log("error", error);
-        console.log("data", data);
-
         if(data) {
             let items: GalleryItem[] = []
             data.mediaItems.nodes.map((item: MediaItem) => {
