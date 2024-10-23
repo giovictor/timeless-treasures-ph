@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
 export default function Footer({ font }: { font: string }) {
     return (
@@ -16,6 +17,7 @@ export default function Footer({ font }: { font: string }) {
                                 alt="Footer Logo"
                                 className="footer-logo"
                             />
+                            <span className="uppercase">Timeless Treasures</span>
                         </Link>
                     </div>
 
@@ -30,11 +32,6 @@ export default function Footer({ font }: { font: string }) {
                                         <Link href="/">Home</Link>
                                     </li>
                                     <li className="menu-item">
-                                        <Link href="/#testimonials">
-                                            Testimonials
-                                        </Link>
-                                    </li>
-                                    <li className="menu-item">
                                         <Link href="/#about-us">About Us</Link>
                                     </li>
                                     <li className="menu-item">
@@ -42,6 +39,11 @@ export default function Footer({ font }: { font: string }) {
                                     </li>
                                     <li className="menu-item">
                                         <Link href="/#gallery">Gallery</Link>
+                                    </li>
+                                    <li className="menu-item">
+                                        <Link href="/#testimonials">
+                                            Testimonials
+                                        </Link>
                                     </li>
                                     <li className="menu-item">
                                         <Link href="/contact">Contact</Link>
@@ -82,27 +84,28 @@ export default function Footer({ font }: { font: string }) {
                                 </a>
                             </div>
 
-                            <span className="newsletter-label invisible block mb-3">
-                                Newsletter
-                            </span>
-                            <div className="relative invisible">
-                                <input
-                                    type="text"
-                                    placeholder="Email Address"
-                                    className="newsletter-email py-2 pl-2 w-36 sm:w-40 md:w-72 text-xs sm:text-sm focus:outline-none"
-                                />
-                                <button
-                                    type="button"
-                                    className="newsletter-email-button absolute text-white h-full right-0"
-                                >
-                                    <img
-                                        src="/images/newsletter-icon.png"
-                                        className="mx-auto w-1/2"
-                                    />
-                                </button>
+                            <div className="footer-contact-details mb-8">
+                            <p>
+                                <FontAwesomeIcon icon={faLocationDot} /> Address
+                            </p>
+                            <p>
+                                LG9 Megaplaza Ortigas Center, Pasig City Philippines
+                            </p>
+                        </div>
+                        <div className="footer-contact-details mb-8">
+                            <p>
+                                <FontAwesomeIcon icon={faPhone} /> Let's Talk
+                            </p>
+                            <p>+639151234584</p>
+                        </div>
+                        <div className="footer-contact-details mb-8">
+                            <p>
+                                <FontAwesomeIcon icon={faEnvelope} /> Email Us
+                            </p>
+                            <p>timelesstreasuresph@gmail.com</p>
+                        </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
             </div>

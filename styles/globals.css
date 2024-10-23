@@ -44,12 +44,8 @@ body {
 }
 
 /* Header stylings */
-.headerWithBackgroundColor {
-    background-color: #7D4C3A;
-}
-
-.headerWithBackgroundImage {
-    background-image: url('../public/images/banner.jpg');
+.header {
+    background-color: #F7F1F1;
 }
 
 .color-layer {
@@ -73,7 +69,7 @@ body {
 }
 
 .menu .menu-item {
-	color: #FFFFFF;
+	color: #2E2E2E;
 	font-size: 12px;
 	padding: 10px 0;
 	padding-left: 2rem;
@@ -84,8 +80,8 @@ body {
 }
 
 .site-description {
-	color: #FFFFFF;
-	font-size: 35px;
+	color: #2E2E2E;
+	font-size: 25px;
     margin: 20% 10%;
 }
 
@@ -100,7 +96,7 @@ body {
 	}
 
     .site-description {
-		font-size: 45px;
+		font-size: 35px;
 	}
 }
 
@@ -112,8 +108,8 @@ body {
 	}
 
 	.custom-logo-link {
-		width: 208px;
-		height: 191px;
+		width: 160px;
+		height: 152px;
 	}
 
 	.mainNav {
@@ -131,7 +127,7 @@ body {
 	}
 
     .site-description {
-		font-size: 65px;
+		font-size: 55px;
 	}
 }
 
@@ -244,8 +240,8 @@ footer {
 
 @media only screen and (min-width: 1536px) {
 	.footer-logo {
-		width: 270px;
-		height: 372px;
+		width: 170px;
+		height: 255px;
 	}
 
 	.footer-menu > .menu-item {
@@ -253,9 +249,17 @@ footer {
 	}
 }
 
+#banner {
+    background-color: #F7F1F1;
+}
+
 /* Testimonials Stylings */
+#testimonials {
+    background-color: #CABBA5;
+}
+
 #testimonials h3 {
-	color:#7D4C3A;
+	color:#F5F1E7;
 	font-size: 25px;
 }
 
@@ -270,19 +274,24 @@ footer {
 }
 
 .testimonial {
-	background-color: #F8F8F8;
+	background-color: #F5F1E7;
 	height: 300px;
 	margin-top: 100px;
     border-radius: 25px;
+    transition: all ease-in-out 0.5s;
+}
+
+.testimonial:hover {
+    background-color: #EFE6D4;
 }
 
 .testimonial-customer {
-	color: #5B463D;
+	color: #2E2E2E;
 	font-size: 18px;
 }
 
 .testimonial-text {
-	color: #5B463D;
+	color: #2E2E2E;
 	font-size: 14px;
 	height: 105px;
 	overflow-y: auto;
@@ -339,15 +348,16 @@ footer {
 /* About Styling */
 #about-us {
     background-image: url('../public/images/about-us-bg.png');
+    height: 654px;
 }
 
 #about-us h3 {
-	color:#FFFFFF;
+	color:#F7F1F1;
 	font-size: 25px;
 }
 
 #about-us p {
-	color:#FFFFFF;
+	color:#F7F1F1;
 	font-size: 16px;
 }
 
@@ -370,16 +380,16 @@ footer {
 
 /* Services Styling */
 #services {
-	background-color: #FFFFFF;
+	background-color: #F7F1F1;
 }
 
 #services h3 {
-	color:#7D4C3A;
+	color:#2E2E2E;
 	font-size: 25px;
 }
 
 #services p {
-	color:#7D4C3A;
+	color:#2E2E2E;
 	font-size: 16px;
 }
 
@@ -396,21 +406,22 @@ footer {
 .service {
 	height: 394px;
 	font-size: 36px;
-    border-radius: 25px;
+    border-radius: 212px;
 }
 
 .service h4 {
     font-size: 20px;
+    color: #F7F1F1;
 }
 
 .service .overlay {
-	background-color: rgba(0, 0, 0, 0.58);
+	background-color: rgba(193, 167, 142, 0.65);
 	transition: all ease-in-out 0.5s;
-    border-radius: 25px;
+    border-radius: 212px;
 }
 
 .service:hover .overlay {
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(193, 167, 142, 0.8);
 }
 
 @media only screen and (min-width: 480px) {
@@ -461,11 +472,11 @@ footer {
 
 /* Gallery styling */
 #gallery {
-    background-color:#F6F6F6;
+    background-color:#F7F1F1;
 }
 
 #gallery h3 {
-    color:#7D4C3A;
+    color:#2E2E2E;
 	font-size: 25px;
 }
 
@@ -482,18 +493,21 @@ footer {
 }
 
 /* Contact Styling */
+#contact {
+    background-color: #EFE6D4;
+}
+
 .contact-form h3 {
-    color:#7D4C3A;
+    color:#2E2E2E;
 	font-size: 25px;
 }
 
-.contact-img .header {
-    color:#7D4C3A;
-	font-size: 20px;
+.contact-form p {
+    color:#2E2E2E;
 }
 
 .contact-form .field label {
-    color: #7D4C3A;
+    color: #B4A7A2;
     font-size: 16px;
 }
 
@@ -510,14 +524,14 @@ footer {
 }
 
 .contact-form .field input:focus-visible, .contact-form .field textarea:focus-visible {
-    border: solid #7D4C3A 3px;
+    border: solid #B4A7A2 3px;
 }
 
 .contact-form button {
     font-size: 16px;
     border-radius: 10px;
     transition: all ease-in-out 0.3s;
-    width: 85px;
+    width: 105px;
     background-color: #7D4C3A;
     border: solid #7D4C3A 1px;
 }
@@ -533,18 +547,6 @@ footer {
     color: #000000;
 }
 
-.contact-img {
-    background-image: url('../public/images/contact-bg.jpg');
-}
-
-.contact-img p {
-    font-size: 16px;
-}
-
-.contact-details-indent {
-    margin-right: 10px;
-}
-
 @media only screen and (min-width: 480px) {
     .contact-form h3 {
         font-size: 30px;
@@ -554,10 +556,6 @@ footer {
 @media only screen and (min-width: 768px) {
     .contact-form h3 {
         font-size: 35px;
-    }
-
-    .contact-img .heading {
-        font-size: 24px;
     }
 
     .contact-form .field label {

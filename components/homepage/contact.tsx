@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faLocationDot,
-    faPhone,
-    faEnvelope,
     faCircleNotch,
 } from "@fortawesome/free-solid-svg-icons";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -71,8 +68,13 @@ export default function Contact() {
     return (
         <section id="contact">
             <div className="grid grid-cols-12 gap-1">
-                <div className="contact-form col-span-12 lg:col-span-5 px-8 md:px-12 lg:px-16 xl:px-24 py-16">
-                    <h3 className="font-medium mb-4 text-left">Contact Us</h3>
+                <div className="contact-form col-span-12 lg:col-span-6 px-8 md:px-12 lg:px-28 xl:px-36 py-16">
+                    <h3 className="font-medium mb-4 text-left">Get in Touch</h3>
+                    <p className="heading font-light mb-12 text-left">
+                        Need to get in touch with us? We’re here to help and
+                        answer any questions you might have. We look forward
+                        to hearing from you!
+                    </p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="field mb-4">
                             <label className="font-medium block mb-1">
@@ -152,40 +154,14 @@ export default function Contact() {
                                         spin
                                     />
                                 ) : (
-                                    "Send"
+                                    "Submit"
                                 )}
                             </button>
                         </div>
                     </form>
                 </div>
-                <div className="contact-img col-span-12 lg:col-span-7 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16">
-                    <div className="text-white mb-8">
-                        <p className="heading font-light mb-12 text-left">
-                            Need to get in touch with us? We’re here to help and
-                            answer any questions you might have. We look forward
-                            to hearing from you!
-                        </p>
-                    </div>
-                    <div className="text-white mb-8">
-                        <p>
-                            <FontAwesomeIcon icon={faLocationDot} /> Address
-                        </p>
-                        <p>
-                            LG9 Megaplaza Ortigas Center, Pasig City Philippines
-                        </p>
-                    </div>
-                    <div className="text-white mb-8">
-                        <p>
-                            <FontAwesomeIcon icon={faPhone} /> Let's Talk
-                        </p>
-                        <p>+639151234584</p>
-                    </div>
-                    <div className="text-white mb-8">
-                        <p>
-                            <FontAwesomeIcon icon={faEnvelope} /> Email Us
-                        </p>
-                        <p>timelesstreasuresph@gmail.com</p>
-                    </div>
+                <div className="contact-img col-span-12 lg:col-span-6 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16">
+                    <img src="/images/contact-img.png" />
                 </div>
             </div>
         </section>

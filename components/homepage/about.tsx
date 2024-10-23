@@ -1,9 +1,9 @@
 export default function About() {
     return (
-        <section id="about-us" className="h-full w-full py-8 sm:py-12 lg:py-16 relative bg-cover bg-no-repeat bg-center">
+        <section id="about-us" className="h-full w-full flex flex-col justify-center py-8 sm:py-12 lg:py-16 relative bg-cover bg-no-repeat bg-center">
             <div className="container mx-auto z-10">
                 <div className="grid grid-cols-12 gap-1">
-                    <div className="col-span-12 flex flex-col justify-center items-center mb-8 sm:mb-16 lg:mb-0 mx-12 md:mx-24 lg:mx-48 xl:mx-64">
+                    <div className="col-span-12 mb-8 sm:mb-16 lg:mb-0 mx-12 md:mx-24 lg:mx-48 xl:mx-64">
                         <h3 className="font-medium mb-4 sm:mb-8 text-center lg:text-left relative">
                             About Us
                         </h3>

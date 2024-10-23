@@ -10,23 +10,19 @@ export default function Navbar() {
 
     return (
         <div
-            className={`container mx-auto z-10 ${
-                router.pathname === "/"
-                    ? "relative lg:absolute lg:top-0"
-                    : "relative"
-            }`}
+            className="container mx-auto z-10 relative"
         >
             <div className="grid grid-cols-12 gap-1 sm:items-center">
-                <div className="col-span-11 sm:col-span-12 lg:col-span-4 sm:flex sm:justify-center mb-0 sm:mb-8 lg:mb-0">
-                    <Link href="/" className="custom-logo-link" rel="home">
+                <div className="col-span-11 sm:col-span-12 lg:col-span-4 sm:flex sm:justify-center sm:items-center mb-0 sm:mb-8 lg:mb-0">
+                    <Link href="/" className="custom-logo-link flex items-center w-full" rel="home">
                         <img
-                            width="208"
-                            height="191"
-                            src={`${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-content/uploads/2024/05/timeless-treasures-ph-logo.png`}
+                            width="160"
+                            height="152"
+                            src="/images/header-logo.jpg"
                             className="custom-logo"
                             alt="Timeless Treasures PH"
-                            decoding="async"
                         />
+                        <span className="uppercase">Timeless Treasures</span>
                     </Link>
                 </div>
 
@@ -52,19 +48,19 @@ export default function Navbar() {
                             aria-label="main-menu"
                         >
                             <li className="menu-item">
+                                <Link href="/#about-us">About Us</Link>
+                            </li>
+                            <li className="menu-item">
                                 <Link href="/#testimonials">Testimonials</Link>
                             </li>
                             <li className="menu-item">
                                 <Link href="/#services">Services</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="/#about-us">About Us</Link>
-                            </li>
-                            <li className="menu-item">
                                 <Link href="/#gallery">Gallery</Link>
                             </li>
                             <li className="menu-item">
-                                <Link href="/contact">Contact</Link>
+                                <Link href="/#contact">Contact</Link>
                             </li>
                         </ul>
                     </div>
