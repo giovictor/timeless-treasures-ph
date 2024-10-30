@@ -4,7 +4,8 @@ import { GALLERY_IMAGES } from "@/data/graphql/gallery"
 import { ColumnsPhotoAlbum } from "react-photo-album"
 import "react-photo-album/columns.css"
 import { Skeleton } from "@/components/ui/skeleton";
-
+import styles from "@/styles/gallery.module.css";
+const { gallery } = styles;
 interface MediaItem {
     mediaItemUrl: string
     altText: string
@@ -44,7 +45,7 @@ export default function Gallery() {
     }, [data])
 
     return (
-        <section id="gallery" className="h-full w-full py-8 lg:py-16">
+        <section id="gallery" className={`${gallery} h-full w-full py-8 lg:py-16`}>
             <div className="container mx-auto">
                 <h3 className="font-medium text-center mb-8 sm:mb-10">
                     Gallery

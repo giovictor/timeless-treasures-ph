@@ -1,0 +1,90 @@
+.servicesContainer {
+	background-color: #F7F1F1;
+}
+
+.servicesContainer h3 {
+	color:#2E2E2E;
+	font-size: 25px;
+}
+
+.servicesContainer p {
+	color:#2E2E2E;
+	font-size: 16px;
+}
+
+.servicesSlider {
+	height: 440px;
+	width: 100%;
+}
+
+.servicesSliderDots {
+    position: relative !important;
+    bottom: 1em !important;
+}
+
+.service {
+	height: 394px;
+	font-size: 36px;
+    border-radius: 212px;
+}
+
+.service h4 {
+    font-size: 20px;
+    color: #F7F1F1;
+}
+
+.service .overlay {
+	background-color: rgba(193, 167, 142, 0.65);
+	transition: all ease-in-out 0.5s;
+    border-radius: 212px;
+}
+
+.service:hover .overlay {
+	background-color: rgba(193, 167, 142, 0.8);
+}
+
+@media only screen and (min-width: 480px) {
+	.servicesContainer h3 {
+		font-size: 30px;
+	}
+
+    .service h4 {
+        font-size: 24px;
+    }
+    
+}
+
+@media only screen and (min-width: 640px) {
+	.servicesSlider {
+		height: 540px;
+	}
+
+	.service {
+		height: 494px;
+		font-size: 30px;
+	}
+
+    .service h4 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+	.servicesContainer h3 {
+		font-size: 35px;
+	}
+
+	.servicesContainer p {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.servicesSlider {
+		height: 640px;
+	}
+
+	.service {
+		height: 594px;
+	}
+}

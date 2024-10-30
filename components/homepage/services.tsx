@@ -5,6 +5,8 @@ import CarouselSlider from "../carousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 
+import styles from "@/styles/services.module.css";
+const {servicesContainer, service, overlay } = styles;
 interface Service {
     databaseId: number;
     name: string;
@@ -18,8 +20,8 @@ interface Service {
 const Service = ({category} : {category:Service}) => {
     return (
         <Link href={`/products/category/${category.slug}`}>
-            <div className="service text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer" style={{backgroundImage: `url(${category.image?.sourceUrl})`}}>
-                <div className="overlay absolute w-full h-full top-0 left-0"></div>
+            <div className={`${service} text-white mx-4 flex justify-center items-center relative bg-cover bg-no-repeat bg-center cursor-pointer`} style={{backgroundImage: `url(${category.image?.sourceUrl})`}}>
+                <div className={`${overlay} absolute w-full h-full top-0 left-0`}></div>
                 <h4 className="text-center relative z-10 px-16">
                     {category.name}
                 </h4>
@@ -30,7 +32,7 @@ const Service = ({category} : {category:Service}) => {
 
 const ServiceSkeleton = () => {
     return (
-        <Skeleton className="service mx-4" />
+        <Skeleton className={`${service} mx-4`} />
     )
 }
 
@@ -39,7 +41,7 @@ export default function Services() {
     const services = data?.productCategories && data?.productCategories?.nodes?.length !== 0 ? data?.productCategories?.nodes?.map((category: Service) => <Service category={category}  key={category.databaseId} />) : []
 
     return (
-        <section id="services" className="h-full py-8 sm:py-12 lg:py-16">
+        <section id="services" className={`${servicesContainer} h-full py-8 sm:py-12 lg:py-16`}>
             <div className="container mx-auto flex flex-col justify-center items-center">
                 <h3 className="font-medium mb-8 sm:mb-10">Our Services</h3>
                 <p className="font-light mx-8 sm:mx-16 lg:mx-20 mb-8 sm:mb-16 text-center">

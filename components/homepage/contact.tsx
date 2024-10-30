@@ -160,7 +160,7 @@ export default function Contact() {
                         </div>
                     </form>
                 </div>
-                <div className="contact-img col-span-12 lg:col-span-6 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16">
+                <div className="contact-img col-span-12 lg:col-span-6 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16 flex items-center justify-center">
                     <img src="/images/contact-img.png" />
                 </div>
             </div>

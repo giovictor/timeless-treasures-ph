@@ -1,0 +1,27 @@
+.banner {
+    background-color: #F7F1F1;
+}
+
+.siteDescription {
+    color: #2E2E2E;
+	font-size: 25px;
+    padding: 10% 10%;
+}
+
+@media only screen and (min-width: 480px) {
+    .siteDescription {
+		font-size: 35px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+    .siteDescription {
+		font-size: 55px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+    .siteDescription {
+		padding: 0 30%;
+	}
+}

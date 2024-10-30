@@ -1,0 +1,30 @@
+.aboutUs {
+    background-image: url('../public/images/about-us-bg.png');
+    height: 654px;
+}
+
+.aboutUs h3 {
+	color:#F7F1F1;
+	font-size: 25px;
+}
+
+.aboutUs p {
+	color:#F7F1F1;
+	font-size: 16px;
+}
+
+@media only screen and (min-width: 480px) {
+	.aboutUs h3 {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.aboutUs h3 {
+		font-size: 35px;
+	}
+
+	.aboutUs p {
+		font-size: 20px;
+	}
+}

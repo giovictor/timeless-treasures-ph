@@ -1,0 +1,66 @@
+.header {
+    background-color: #F7F1F1;
+}
+.customLogoLink {
+	display: inline-block;
+    width: 108px;
+	height: 91px;
+}
+
+.mainNav {
+	background-color: #F7F1F1;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.menuItem {
+	color: #2E2E2E;
+	font-size: 12px;
+	padding: 10px 0;
+	padding-left: 2rem;
+}
+
+.mobileNavToggle {
+	right: 50%;
+}
+
+@media only screen and (min-width: 480px) {
+	.customLogoLink {
+		width: 158px;
+		height: 141px;
+	}
+
+	.mobileNavToggle {
+		right: 20%;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	.menuItem {
+		font-size: 16px;
+		padding: 0;
+		padding-right: 30px;
+	}
+
+	.customLogoLink {
+		width: 160px;
+		height: 152px;
+	}
+
+	.mainNav {
+		background: none;
+	}
+
+	.menu {
+		flex-direction: row;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.menuItem {
+		padding-right: 60px;
+	}
+}

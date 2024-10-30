@@ -1,0 +1,90 @@
+.testimonialsContainer {
+    background-color: #CABBA5;
+}
+
+.testimonialsContainer h3 {
+	color:#F5F1E7;
+	font-size: 25px;
+}
+
+.testimonialsSlider {
+    height: 450px;
+    width: 100%;
+}
+
+.testimonialsSliderDots {
+    position: relative !important;
+    bottom: 1em !important;
+}
+
+.testimonial {
+	background-color: #F5F1E7;
+	height: 300px;
+	margin-top: 100px;
+    border-radius: 25px;
+    transition: all ease-in-out 0.5s;
+}
+
+.testimonial:hover {
+    background-color: #EFE6D4;
+}
+
+.testiimonialCustomer {
+	color: #2E2E2E;
+	font-size: 18px;
+}
+
+.testimonialText {
+	color: #2E2E2E;
+	font-size: 14px;
+	height: 105px;
+	overflow-y: auto;
+}
+
+.testimonialImage {
+	height: 150px;
+	width: 150px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.rating {
+	color: #FFBA70;
+}
+
+@media only screen and (min-width: 480px) {
+	.testimonialsContainer h3 {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	.testimonialsSlider {
+		height: 650px;
+	}
+
+	.testimonial {
+		height: 450px;
+		margin-top: 150px;
+	}
+
+	.testiimonialCustomer {
+		font-size: 24px;
+	}
+
+	.testimonialText {
+		font-size: 18px;
+		height: 190px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.testimonialsContainer h3 {
+		font-size: 35px;
+	}
+
+	.testimonialImage {
+		height: 200px;
+		width: 200px;
+	}
+}

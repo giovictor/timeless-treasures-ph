@@ -1,0 +1,20 @@
+.gallery {
+    background-color:#F7F1F1;
+}
+
+.gallery h3 {
+    color:#2E2E2E;
+	font-size: 25px;
+}
+
+@media only screen and (min-width: 480px) {
+    .gallery h3 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .gallery h3 {
+        font-size: 35px;
+    }
+}
