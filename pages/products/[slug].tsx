@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
+import styles from "@/styles/products.module.css";
+const { productContainer, productName, productPrice, spinner } = styles
 export default function Product() {
     const router = useRouter();
     const { data, loading, error } = useQuery(PRODUCT, {
@@ -83,7 +84,7 @@ export default function Product() {
     return (
         <section
             id="product"
-            className="h-full px-4 sm:px-8 py-8 sm:py-12 lg:py-16"
+            className={`${productContainer} h-full px-4 sm:px-8 py-8 sm:py-12 lg:py-16`}
         >
             <div className="container mx-auto">
                 <div className="flex flex-wrap">
@@ -94,17 +95,17 @@ export default function Product() {
                             </div>
 
                             <div className="w-full h-full lg:w-6/12 p-6 lg:p-12">
-                                <h3 className="product-name text-3xl mb-8">
+                                <h3 className={`${productName} text-3xl mb-8`}>
                                     {data?.product?.name}
                                 </h3>
-                                <p className="product-price text-2xl mb-8">
+                                <p className={`${productPrice} text-2xl mb-8`}>
                                     {data?.product?.variations?.nodes ? data?.product?.formattedPrice : computedPrice}
                                 </p>
                                 {data?.product?.attributes?.nodes &&
                                     data.product.attributes.nodes.map(
                                         (attribute: any, index: number) => (
                                             <div
-                                                className="variation-field mb-8"
+                                                className="variationField mb-8"
                                                 key={index}
                                             >
                                                 <label className="block">
@@ -144,7 +145,7 @@ export default function Product() {
                                 </div>
 
                                 {Object.keys(selectedVariation).length !== 0 && computedPrice && (
-                                    <p className="product-price text-2xl mb-8">
+                                    <p className={`${productPrice} text-2xl mb-8`}>
                                         {computedPrice}
                                     </p>
                                 )}
@@ -156,7 +157,7 @@ export default function Product() {
                             </div>
                         </>
                     ) : (
-                        <div className="spinner h-96 w-full flex justify-center items-center">
+                        <div className={`${spinner} h-96 w-full flex justify-center items-center`}>
                             <FontAwesomeIcon
                                 icon={faCircleNotch}
                                 size="xl"

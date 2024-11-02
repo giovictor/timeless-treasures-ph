@@ -4,7 +4,7 @@
 
 .testimonialsContainer h3 {
 	color:#F5F1E7;
-	font-size: 25px;
+	font-size: 35px;
 }
 
 .testimonialsSlider {
@@ -18,7 +18,7 @@
 }
 
 .testimonial {
-	background-color: #F5F1E7;
+    background-color: #EFE6D4;
 	height: 300px;
 	margin-top: 100px;
     border-radius: 25px;
@@ -26,10 +26,10 @@
 }
 
 .testimonial:hover {
-    background-color: #EFE6D4;
+    background-color: #F5F1E7;
 }
 
-.testiimonialCustomer {
+.testimonialCustomer {
 	color: #2E2E2E;
 	font-size: 18px;
 }
@@ -54,7 +54,7 @@
 
 @media only screen and (min-width: 480px) {
 	.testimonialsContainer h3 {
-		font-size: 30px;
+		font-size: 40px;
 	}
 }
 
@@ -68,7 +68,7 @@
 		margin-top: 150px;
 	}
 
-	.testiimonialCustomer {
+	.testimonialCustomer {
 		font-size: 24px;
 	}
 
@@ -80,7 +80,7 @@
 
 @media only screen and (min-width: 768px) {
 	.testimonialsContainer h3 {
-		font-size: 35px;
+		font-size: 45px;
 	}
 
 	.testimonialImage {

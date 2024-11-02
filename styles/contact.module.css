@@ -1,0 +1,79 @@
+.contactContainer {
+    background-color: #EFE6D4;
+}
+
+.contactForm h3 {
+    color:#2E2E2E;
+	font-size: 35px;
+}
+
+.contactFormText {
+    color:#B4A7A2;
+    font-size: 20px;
+}
+
+.contactForm .field label {
+    color: #B4A7A2;
+    font-size: 16px;
+}
+
+.contactForm .field input, .contactForm .field textarea {
+    border: solid #BCB1AC 1px;
+    border-radius: 8px;
+    color: #000000;
+    font-size: 16px;
+    outline: none;
+    background-color: #EFE6D4;
+}
+
+.contactForm .field input {
+    height: 50px;
+}
+
+.contactForm .field input:focus-visible, .contactForm .field textarea:focus-visible {
+    border: solid #B4A7A2 3px;
+}
+
+.contactForm button {
+    font-size: 16px;
+    border-radius: 10px;
+    transition: all ease-in-out 0.3s;
+    width: 105px;
+    background-color: #C1A78E;
+    border: solid #C1A78E 1px;
+}
+
+.contactForm button:hover {
+    color: #C1A78E;
+    background-color: #FFFFFF;
+}
+
+.contactForm button:disabled, .contactForm button:disabled:hover  {
+    background-color: #d1d5db;
+    border: solid #e5e7eb 1px;
+    color: #000000;
+}
+
+@media only screen and (min-width: 480px) {
+    .contactForm h3 {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .contactForm h3 {
+        font-size: 45px;
+    }
+
+    .contactForm .field label {
+        font-size: 20px;
+    }
+
+    .contactForm .field input, .contactForm .field textarea {
+        font-size: 20px;
+    }
+
+    .contactForm button {
+        font-size: 20px;
+    }
+}

@@ -6,7 +6,8 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z, ZodType } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import styles from "@/styles/contact.module.css";
+const { contactContainer, contactForm, contactFormText, field } = styles
 interface ContactForm {
     name: string;
     email: string;
@@ -66,63 +67,67 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact">
+        <section id="contact" className={`${contactContainer}`}>
             <div className="grid grid-cols-12 gap-1">
-                <div className="contact-form col-span-12 lg:col-span-6 px-8 md:px-12 lg:px-28 xl:px-36 py-16">
+                <div className={`${contactForm} col-span-12 lg:col-span-6 px-8 md:px-12 lg:px-28 xl:px-36 py-16`}>
                     <h3 className="font-medium mb-4 text-left">Get in Touch</h3>
-                    <p className="heading font-light mb-12 text-left">
+                    <p className={`${contactFormText} heading font-light mb-12 text-left`}>
                         Need to get in touch with us? We’re here to help and
                         answer any questions you might have. We look forward
                         to hearing from you!
                     </p>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="field mb-4">
-                            <label className="font-medium block mb-1">
+                        <div className={`${field} mb-4`}>
+                            {/* <label className="font-medium block mb-1">
                                 Name:
-                            </label>
+                            </label> */}
                             <input
                                 type="text"
                                 className="w-full p-3"
                                 {...register("name")}
+                                placeholder="Name"
                             />
                             <span className="text-sm inline-block pt-1 text-red-600">
                                 {errors?.name?.message}
                             </span>
                         </div>
-                        <div className="field mb-4">
-                            <label className="font-medium block mb-1">
+                        <div className={`${field} mb-4`}>
+                            {/* <label className="font-medium block mb-1">
                                 Email:
-                            </label>
+                            </label> */}
                             <input
                                 type="text"
                                 className="w-full p-3"
                                 {...register("email")}
+                                placeholder="Email"
                             />
                             <span className="text-sm inline-block pt-1 text-red-600">
                                 {errors?.email?.message}
                             </span>
                         </div>
-                        <div className="field mb-4">
-                            <label className="font-medium block mb-1">
+                        <div className={`${field} mb-4`}>
+                            {/* <label className="font-medium block mb-1">
                                 Contact Number:
-                            </label>
+                            </label> */}
                             <input
                                 type="text"
                                 className="w-full p-3"
                                 {...register("contactNumber")}
+                                placeholder="Contact Number"
                             />
                             <span className="text-sm inline-block pt-1 text-red-600">
                                 {errors?.contactNumber?.message}
                             </span>
                         </div>
-                        <div className="field mb-4">
-                            <label className="font-medium block mb-1">
+                        <div className={`${field} mb-4`}>
+                            {/* <label className="font-medium block mb-1">
                                 Message:
-                            </label>
+                            </label> */}
                             <textarea
                                 rows={5}
                                 className="w-full p-3"
                                 {...register("message")}
+                                placeholder="Message"
                             ></textarea>
                             <span className="text-sm inline-block pt-1 text-red-600">
                                 {errors?.message?.message}
@@ -160,7 +165,7 @@ export default function Contact() {
                         </div>
                     </form>
                 </div>
-                <div className="contact-img col-span-12 lg:col-span-6 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16 flex items-center justify-center">
+                <div className="col-span-12 lg:col-span-6 bg-cover bg-no-repeat bg-center px-8 md:px-12 lg:px-16 xl:px-24 py-16 flex items-center justify-center">
                     <img src="/images/contact-img.png" />
                 </div>
             </div>

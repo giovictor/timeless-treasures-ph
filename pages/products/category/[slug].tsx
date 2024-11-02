@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-
+import styles from "@/styles/products.module.css";
+const { productsContainer, spinner } = styles
 export default function Products() {
     const router = useRouter();
     const categoryName = (router?.query?.slug as string)?.split("-").join(" ");
@@ -17,7 +18,7 @@ export default function Products() {
     return (
         <section
             id="products"
-            className="h-full px-4 sm:px-8 py-8 sm:py-12 lg:py-16"
+            className={`${productsContainer} h-full px-4 sm:px-8 py-8 sm:py-12 lg:py-16`}
         >
             <div className="container mx-auto">
                 <h3 className="font-medium capitalize mb-8 sm:mb-10">
@@ -32,7 +33,7 @@ export default function Products() {
                                     key={product.databaseId}
                                 >
                                     <Link href={`/products/${product.slug}`}>
-                                        <div className="product m-4 pb-4 cursor-pointer">
+                                        <div className={`${styles.product} m-4 pb-4 cursor-pointer`}>
                                             <img
                                                 src={product.image.mediaItemUrl}
                                                 className="w-full"
@@ -56,7 +57,7 @@ export default function Products() {
                             <span className="h-96 text-md py-4">No products available for {categoryName}.</span>
                         )
                     ) : (
-                        <div className="spinner h-96 w-full flex justify-center items-center">
+                        <div className={`${spinner} h-96 w-full flex justify-center items-center`}>
                             <FontAwesomeIcon
                                 icon={faCircleNotch}
                                 size="xl"

@@ -5,25 +5,25 @@ import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-
 import styles from "@/styles/footer.module.css";
 const { footer, footerLogo, footerMenu, menuItem, followUsOnLabel, socialMediaLink, copyright, contactDetails } = styles
 
-export default function Footer({ font }: { font: string }) {
+export default function Footer() {
     return (
         <footer
-            className={`${footer} flex flex-col items-center px-0 pt-8 lg:pt-0 ${font}`}
+            className={`${footer} flex flex-col items-center px-0 pt-8 lg:pt-0`}
         >
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-1 items-center">
-                    <div className="col-span-12 lg:col-span-4 mb-8 flex justify-center">
+                    <div className="col-span-6 sm:col-span-12 lg:col-span-4 mb-8 flex justify-center">
                         <Link href="/">
                             <img
                                 src="/images/footer-logo.jpg"
                                 alt="Footer Logo"
                                 className={`${footerLogo}`}
                             />
-                            <span className="uppercase">Timeless Treasures</span>
+                            <span className="uppercase hidden sm:block">Timeless Treasures</span>
                         </Link>
                     </div>
 
-                    <div className="col-span-12 sm:col-span-6 lg:col-span-4 mb-8 flex justify-center">
+                    <div className="col-span-6 lg:col-span-4 mb-8 flex justify-center">
                         <nav aria-label="Footer Menu">
                             <div className="footerMenuContainer">
                                 <ul
@@ -54,7 +54,7 @@ export default function Footer({ font }: { font: string }) {
                         </nav>
                     </div>
 
-                    <div className="col-span-12 sm:col-span-6 lg:col-span-4 mb-8 flex justify-center">
+                    <div className="col-span-12 sm:col-span-6 lg:col-span-4 mb-8 mx-8 sm:mx-0 flex justify-center">
                         <div className="footerContactDetails">
                             <span className={`${followUsOnLabel} mb-3 mr-3 block`}>
                                 Follow us on:
@@ -86,17 +86,17 @@ export default function Footer({ font }: { font: string }) {
                             </div>
 
                             <div className="mb-3">
-                                <p className={`${contactDetails} break-words`}>
+                                <p className={`${contactDetails}`}>
                                     <FontAwesomeIcon icon={faLocationDot} /> LG9 Megaplaza Ortigas Center, Pasig City Philippines
                                 </p>
                             </div>
                             <div className="mb-3">
-                                <p className={`${contactDetails} break-words`}>
+                                <p className={`${contactDetails}`}>
                                     <FontAwesomeIcon icon={faPhone} /> +639151234584
                                 </p>
                             </div>
                             <div className="mb-3">
-                                <p className={`${contactDetails} break-words`}>
+                                <p className={`${contactDetails}`}>
                                     <FontAwesomeIcon icon={faEnvelope} /> timelesstreasuresph@gmail.com
                                 </p>
                             </div>
@@ -105,7 +105,6 @@ export default function Footer({ font }: { font: string }) {
                 </div>
 
             </div>
-
             <div className={`${copyright} flex justify-center items-center w-full`}>
                 <p className="font-light text-xs sm:text-sm px-4 sm:px-0">Copyright &copy; {new Date().getFullYear()} Timeless Treasures PH | All Rights Reserved.</p>
             </div>

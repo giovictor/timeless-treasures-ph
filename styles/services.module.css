@@ -4,12 +4,12 @@
 
 .servicesContainer h3 {
 	color:#2E2E2E;
-	font-size: 25px;
+	font-size: 35px;
 }
 
 .servicesContainer p {
 	color:#2E2E2E;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .servicesSlider {
@@ -23,9 +23,10 @@
 }
 
 .service {
-	height: 394px;
+	height: 420px;
 	font-size: 36px;
     border-radius: 212px;
+    width: 363px;
 }
 
 .service h4 {
@@ -45,7 +46,7 @@
 
 @media only screen and (min-width: 480px) {
 	.servicesContainer h3 {
-		font-size: 30px;
+		font-size: 40px;
 	}
 
     .service h4 {
@@ -55,12 +56,8 @@
 }
 
 @media only screen and (min-width: 640px) {
-	.servicesSlider {
-		height: 540px;
-	}
-
 	.service {
-		height: 494px;
+		height: 520px;
 		font-size: 30px;
 	}
 
@@ -71,20 +68,16 @@
 
 @media only screen and (min-width: 768px) {
 	.servicesContainer h3 {
-		font-size: 35px;
+		font-size: 45px;
 	}
 
 	.servicesContainer p {
-		font-size: 20px;
+		font-size: 24px;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
-	.servicesSlider {
-		height: 640px;
-	}
-
 	.service {
-		height: 594px;
+		height: 620px;
 	}
 }

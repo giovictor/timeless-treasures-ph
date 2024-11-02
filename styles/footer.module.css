@@ -3,9 +3,9 @@
 	height: 100%;
 }
 
-.footerLogo{
-	width: 200px;
-	height: 266px;
+.footerLogo {
+	width: 170px;
+	height: 255px;
 }
 
 .footerMenu {
@@ -18,38 +18,34 @@
 .menuItem {
 	margin-bottom: 15px;
 	margin-right: 20%;
-	color: #432316;
-	font-size: 12px;
+	color: #2E2E2E;
+	font-size: 16px;
 }
 
 .followUsOnLabel {
 	font-size: 12px;
-    color: #432316;
+    color: #2E2E2E;
 }
 
 .socialMediaLink {
-    color: #432316;
+    color: #2E2E2E;
     font-size: 30px;
     transition: all ease-in-out 0.3s;
 }
 
 .socialMediaLink:hover {
-    color: #7D4C3A;
+    color: #CABBA5;
 }
 
 .copyright {
     height: 60px;
-    background-color: #7D4C3A;
-    color: #FFFFFF;
-}
-
-.contactDetails {
-    width: 300px;
+    background-color: #CABBA5;
+    color: #F5F1E7;
 }
 
 @media only screen and (min-width: 640px) {
 	.menuItem {
-		font-size: 16px;
+		font-size: 20px;
 	}
 
 	.followUsOnLabel {

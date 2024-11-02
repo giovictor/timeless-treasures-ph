@@ -5,26 +5,26 @@
 
 .aboutUs h3 {
 	color:#F7F1F1;
-	font-size: 25px;
+	font-size: 35px;
 }
 
 .aboutUs p {
 	color:#F7F1F1;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 @media only screen and (min-width: 480px) {
 	.aboutUs h3 {
-		font-size: 30px;
+		font-size: 40px;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	.aboutUs h3 {
-		font-size: 35px;
+		font-size: 45px;
 	}
 
 	.aboutUs p {
-		font-size: 20px;
+		font-size: 24px;
 	}
 }

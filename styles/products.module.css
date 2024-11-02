@@ -1,0 +1,33 @@
+.productsContainer h3 {
+    color:#5B463D;
+	font-size: 25px;
+}
+
+.product {
+    border: solid #BCB1AC 1px;
+    border-radius: 5px;
+}
+
+.product:hover {
+    border: solid #7D4C3A 2px;
+}
+
+.product img {
+    border-radius: 4px
+}
+
+.product p, .productPrice {
+    color:#7D4C3A;
+}
+
+.productsContainer .spinner, .productContainer .spinner {
+    color:#5B463D;
+}
+
+.product button {
+    background-color: #7D4C3A;
+}
+
+.productName {
+    color: #2E2E2E;
+}

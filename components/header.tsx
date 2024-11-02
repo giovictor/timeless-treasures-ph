@@ -6,14 +6,14 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/header.module.css";
 const { header, customLogoLink, mobileNavToggle, mainNav, menu, menuItem } = styles
 
-export default function Header({ font }: { font: string }) {
+export default function Header() {
     const router = useRouter();
     const [toggleMobileNavigation, setToggleMobileNavigation] =
         useState<boolean>(false);
 
     return (
         <header
-            className={`h-full ${header} w-full relative flex justify-center items-center ${font}`}
+            className={`h-full ${header} w-full relative flex justify-center items-center`}
         >
             <div className="container mx-auto z-10 relative">
                 <div className="grid grid-cols-12 gap-1 sm:items-center">
@@ -30,7 +30,7 @@ export default function Header({ font }: { font: string }) {
                                 className={customLogoLink}
                                 alt="Timeless Treasures PH"
                             />
-                            <span className="uppercase hidden lg:block">
+                            <span className="text-2xl uppercase hidden lg:block">
                                 Timeless Treasures
                             </span>
                         </Link>
