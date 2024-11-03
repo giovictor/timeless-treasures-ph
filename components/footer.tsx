@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { faLocationDot, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import styles from "@/styles/footer.module.css";
-const { footer, footerLogo, footerMenu, menuItem, followUsOnLabel, socialMediaLink, copyright, contactDetails } = styles
+const { footer, logo, footerLogo, footerMenu, menuItem, followUsOnLabel, socialMediaLink, copyright, contactDetails } = styles
 
 export default function Footer() {
     return (
@@ -12,8 +12,8 @@ export default function Footer() {
         >
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-1 items-center">
-                    <div className="col-span-6 sm:col-span-12 lg:col-span-4 mb-8 flex justify-center">
-                        <Link href="/">
+                    <div className="col-span-6 sm:col-span-12 lg:col-span-4 mb-8 flex justify-center lg:justify-start">
+                        <Link href="/" className={`${logo}`}>
                             <img
                                 src="/images/footer-logo.jpg"
                                 alt="Footer Logo"
@@ -23,7 +23,7 @@ export default function Footer() {
                         </Link>
                     </div>
 
-                    <div className="col-span-6 lg:col-span-4 mb-8 flex justify-center">
+                    <div className="col-span-6 lg:col-span-4 mb-8 flex justify-center lg:justify-start">
                         <nav aria-label="Footer Menu">
                             <div className="footerMenuContainer">
                                 <ul
@@ -54,7 +54,7 @@ export default function Footer() {
                         </nav>
                     </div>
 
-                    <div className="col-span-12 sm:col-span-6 lg:col-span-4 mb-8 mx-8 sm:mx-0 flex justify-center">
+                    <div className="col-span-12 sm:col-span-6 lg:col-span-4 mb-8 mx-8 sm:mx-0 flex justify-center lg:justify-start">
                         <div className="footerContactDetails">
                             <span className={`${followUsOnLabel} mb-3 mr-3 block`}>
                                 Follow us on:

@@ -3,6 +3,14 @@
 	height: 100%;
 }
 
+.logo {
+    transition: all ease-in-out 0.3s;
+}
+
+.logo:hover {
+    color: #CABBA5;
+}
+
 .footerLogo {
 	width: 170px;
 	height: 255px;
@@ -20,6 +28,11 @@
 	margin-right: 20%;
 	color: #2E2E2E;
 	font-size: 16px;
+    transition: all ease-in-out 0.3s;
+}
+
+.menuItem:hover {
+    color: #CABBA5;
 }
 
 .followUsOnLabel {
@@ -59,19 +72,9 @@
 	}
 }
 
-@media only screen and (min-width: 1200px) {
-	.menuItem {
-		margin-right: 30%;
-	}
-}
-
 @media only screen and (min-width: 1536px) {
 	.footerLogo {
 		width: 170px;
 		height: 255px;
-	}
-
-	.menuItem {
-		margin-right: 50%;
 	}
 }

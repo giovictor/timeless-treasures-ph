@@ -49,7 +49,7 @@ export default function Services() {
                 <p className="font-light mb-8 sm:mb-16 text-center">
                     We do a lot of custom souvenirs, rentals, and styling. We
                     pride ourselves on creating unique items and timeless
-                    treasures for you to experience. Work with us as we craft
+                    treasures for you to experience. <br/> Work with us as we craft
                     your memorable events!
                 </p>
                 <CarouselSlider slides={services} skeleton={<ServiceSkeleton />} />

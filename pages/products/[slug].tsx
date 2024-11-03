@@ -7,7 +7,7 @@ import { faCircleNotch, faPlus, faMinus } from "@fortawesome/free-solid-svg-icon
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import styles from "@/styles/products.module.css";
-const { productContainer, productName, productPrice, spinner } = styles
+const { productContainer, productImage, productName, productPrice, spinner, variationField, quantityField, cartNote } = styles
 export default function Product() {
     const router = useRouter();
     const { data, loading, error } = useQuery(PRODUCT, {
@@ -61,9 +61,21 @@ export default function Product() {
        setSelectedVariation((prevState: any) => ({ ...prevState, [e.target.name]: e.target.value }))
     }
 
+    const clearVariation = (key: any) => {
+        setSelectedVariation((prevState:any) => {
+            let variation = { ...prevState }
+            delete variation[key]
+            return variation
+        })
+    }
+
     const handleQuantity = (e: ChangeEvent<HTMLInputElement>) => {
         setQuantity(e.target.value)
-    }
+
+        if(Number(e.target.value) < 1 || !Number.isInteger(Number(e.target.value))) {
+            setQuantity("")
+        }
+    } 
 
     const decreaseQuantity = () => {
         if(Number(quantity) > 1) {
@@ -91,27 +103,27 @@ export default function Product() {
                     {!loading && data?.product ? (
                         <>
                             <div className="w-full h-full lg:w-6/12 p-6 lg:p-12">
-                                <img src={data?.product?.image?.mediaItemUrl} />
+                                <img className={`${productImage}`} src={data?.product?.image?.mediaItemUrl} />
                             </div>
 
                             <div className="w-full h-full lg:w-6/12 p-6 lg:p-12">
-                                <h3 className={`${productName} text-3xl mb-8`}>
+                                <h3 className={`${productName} text-4xl mb-8`}>
                                     {data?.product?.name}
                                 </h3>
-                                <p className={`${productPrice} text-2xl mb-8`}>
+                                <p className={`${productPrice} text-3xl mb-8`}>
                                     {data?.product?.variations?.nodes ? data?.product?.formattedPrice : computedPrice}
                                 </p>
                                 {data?.product?.attributes?.nodes &&
                                     data.product.attributes.nodes.map(
                                         (attribute: any, index: number) => (
                                             <div
-                                                className="variationField mb-8"
+                                                className={`${variationField} mb-8`}
                                                 key={index}
                                             >
-                                                <label className="block">
+                                                <label className="block mb-2 font-bold">
                                                     {attribute.label}
                                                 </label>
-                                                <select className="w-4/12" name={attribute.label} onChange={handleVariationChange} value={selectedVariation[attribute.label] || ""}>
+                                                <select className="w-4/12 p-2 rounded-lg" name={attribute.label} onChange={handleVariationChange} value={selectedVariation[attribute.label] || ""}>
                                                     <option value="" disabled>Choose {attribute.label.toLowerCase()}</option>
                                                     {attribute.options.map(
                                                         (option: any, optionIndex: number) => (
@@ -124,19 +136,20 @@ export default function Product() {
                                                         )
                                                     )}
                                                 </select>
+                                                <button type="button" className="ml-3 underline" onClick={() => clearVariation(attribute.label)}>Clear</button>
                                             </div>
                                         )
                                     )}
-                                <div className="flex w-full items-center my-4">
-                                    <label className="mr-5">Quantity</label>
+                                <div className={`${quantityField} flex w-full items-center mt-4 mb-8`}>
+                                    <label className="mr-5 font-bold">Quantity</label>
                                     <div className="flex">
-                                        <Button type="button" className="rounded-none" onClick={decreaseQuantity}>
+                                        <Button type="button" className="rounded-l-lg rounded-r-none" onClick={decreaseQuantity}>
                                             <FontAwesomeIcon
                                                 icon={faMinus}
                                             />
                                         </Button>
-                                        <Input type="number" min="1" max="100" className="w-20 rounded-none" onChange={handleQuantity} value={quantity} />
-                                        <Button type="button" className="rounded-none"  onClick={increaseQuantity}>
+                                        <Input type="number" min="1" max="100" className="w-16 rounded-none" onChange={handleQuantity} value={quantity} />
+                                        <Button type="button" className="rounded-l-none rounded-r-lg"  onClick={increaseQuantity}>
                                             <FontAwesomeIcon
                                                 icon={faPlus}
                                             />
@@ -144,15 +157,15 @@ export default function Product() {
                                     </div>
                                 </div>
 
-                                {Object.keys(selectedVariation).length !== 0 && computedPrice && (
-                                    <p className={`${productPrice} text-2xl mb-8`}>
-                                        {computedPrice}
+                                {Object.keys(selectedVariation).length !== 0 && (
+                                    <p className={`${productPrice} text-3xl mb-8`}>
+                                        {computedPrice ? computedPrice : 'No available price for variation(s) selected.'}
                                     </p>
                                 )}
 
-                                <div className="my-4">
-                                    <p>Note:</p>
-                                    <p>Cart page is under construction. To buy products kindly send us your inquiry via contact form or message us on our social media accounts directly.</p>
+                                <div className={`${cartNote} my-4`}>
+                                    <p className="italic">Note:</p>
+                                    <p className="italic">Cart page is under construction. To buy products kindly send us your inquiry via contact form or message us on our social media accounts directly.</p>
                                 </div>
                             </div>
                         </>

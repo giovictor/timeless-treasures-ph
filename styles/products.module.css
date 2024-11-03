@@ -1,6 +1,6 @@
 .productsContainer h3 {
-    color:#5B463D;
-	font-size: 25px;
+    color:#2E2E2E;
+	font-size: 35px;
 }
 
 .product {
@@ -9,25 +9,75 @@
 }
 
 .product:hover {
-    border: solid #7D4C3A 2px;
+    border: solid #CABBA5 2px;
 }
 
 .product img {
     border-radius: 4px
 }
 
-.product p, .productPrice {
-    color:#7D4C3A;
+.productImage {
+    border-radius: 20px;
+    border: solid #CABBA5 1px;
+}
+
+.product p, .variationField label, .quantityField label {
+    color:#2E2E2E;
+}
+
+.variationField label, .quantityField label {
+    font-size: 18px;
+}
+
+.variationField select {
+    appearance: none;
+    outline: none;
+    font-size: 16px;
+    background-color: #F7F1F1;
+    background-image: url('../public/images/dropdown-arrow.png');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem top 50%;
+    cursor: pointer;
+    color: #2E2E2E;
+}
+
+.quantityField button {
+    background-color: #F7F1F1;
+    color: #89766E;
+}
+
+.quantityField button:hover {
+    background-color: #7D4C3A;
+    color: #F7F1F1;
+}
+
+.productPrice {
+    color: #7D4C3A;
 }
 
 .productsContainer .spinner, .productContainer .spinner {
-    color:#5B463D;
+    color:#2E2E2E;
 }
 
 .product button {
+    background-color: #CABBA5;
+    transition: all ease-in-out 0.3s;
+}
+
+.product button:hover {
     background-color: #7D4C3A;
 }
 
 .productName {
     color: #2E2E2E;
+}
+
+.cartNote p:nth-child(1) {
+    color: #DDC4A6;
+    font-size: 20px;
+}
+
+.cartNote p:nth-child(2) {
+    color: #432316;
+    font-size: 18px;
 }

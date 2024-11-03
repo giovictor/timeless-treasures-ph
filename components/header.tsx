@@ -2,14 +2,23 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/header.module.css";
-const { header, customLogoLink, mobileNavToggle, mainNav, menu, menuItem } = styles
+const { header, logo, customLogoLink, mobileNavToggle, mainNav, menu, menuItem } = styles
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger
+  } from "@/components/ui/dropdown-menu"
+import { useQuery } from "@apollo/client";
+import { SERVICES_LIST } from "@/data/graphql/services";
 
 export default function Header() {
     const router = useRouter();
     const [toggleMobileNavigation, setToggleMobileNavigation] =
         useState<boolean>(false);
+    const { error, loading, data } = useQuery(SERVICES_LIST);
 
     return (
         <header
@@ -20,7 +29,7 @@ export default function Header() {
                     <div className="col-span-11 sm:col-span-12 lg:col-span-4 sm:flex sm:justify-center sm:items-center mb-0 sm:mb-8 lg:mb-0">
                         <Link
                             href="/"
-                            className="flex items-center w-full"
+                            className={`${logo} flex items-center w-full`}
                             rel="home"
                         >
                             <img
@@ -69,9 +78,31 @@ export default function Header() {
                                         Testimonials
                                     </Link>
                                 </li>
-                                <li className={menuItem}>
-                                    <Link href="/#services">Services</Link>
-                                </li>
+                                {
+                                    router.pathname === "/" ?
+                                        <li className={menuItem}>
+                                            <Link href="/#services">Services</Link>
+                                        </li>
+                                    : 
+                                        <li className={menuItem}>
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger className="flex justify-center items-center">
+                                                    Services  <FontAwesomeIcon icon={faAngleDown} className="ml-2" />
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent>
+                                                    {
+                                                        data?.productCategories && data?.productCategories?.nodes?.length !== 0 &&
+                                                            data?.productCategories?.nodes?.map((category:any) => (
+                                                                <Link href={`/products/category/${category.slug}`} key={category.databaseId}>
+                                                                    <DropdownMenuItem className="cursor-pointer">{category.name}</DropdownMenuItem>
+                                                                </Link>
+                                                            ))
+                                                    }
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        </li>
+                                }
+                                    
                                 <li className={menuItem}>
                                     <Link href="/#gallery">Gallery</Link>
                                 </li>

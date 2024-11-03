@@ -39,7 +39,7 @@ export default function Products() {
                                                 className="w-full"
                                             />
                                             <div className="px-4">
-                                                <p className="text-sm h-8 leading-4 my-2 line-clamp-2 text-ellipsis hover:underline">
+                                                <p className="text-sm h-8 leading-4 my-2 line-clamp-2 text-ellipsis hover:underline font-bold">
                                                     {product.name}
                                                 </p>
                                                 <p className="text-md font-medium mt-2 mb-4">
