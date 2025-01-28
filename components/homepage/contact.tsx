@@ -74,7 +74,7 @@ export default function Contact() {
                     <p className={`${contactFormText} heading font-light mb-12 text-left`}>
                         Need to get in touch with us? We’re here to help and
                         answer any questions you might have. We look forward
-                        to hearing from you!
+                        to hearing from you! Also, feel free to reach out to us on <a href="https://www.facebook.com/timelesstreasuresphilippines" target="_blank" className="underline">Facebook</a> or <a href="https://www.instagram.com/timelesstreasures_ph/" target="_blank" className="underline">Instagram</a>.
                     </p>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className={`${field} mb-4`}>
